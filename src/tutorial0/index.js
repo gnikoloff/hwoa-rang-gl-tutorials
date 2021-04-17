@@ -106,7 +106,9 @@ img.onload = () => {
     .setAnisotropy(8)
     .generateMipmap()
 }
-img.src = '/assets/webgl-logo.png'
+img.src = location.href.includes('github')
+  ? '/hwoa-rang-gl-tutorials/assets/webgl-logo.png'
+  : '/assets/webgl-logo.png'
 
 // Start our animation loop
 requestAnimationFrame(renderFrame)
