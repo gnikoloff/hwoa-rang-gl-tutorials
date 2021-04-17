@@ -6,10 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>hwoa-rang-gl | Tutorials</title>
   <style>
-    * { margin: 0; padding: 0; }
+    /* * { margin: 0; padding: 0; box-sizing: border-box; } */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .container {
+      max-width: 768px;
+      margin: 2rem auto;
+    }
+    img {
+      width: 100%;
+    }
   </style>
 </head>
 <body>
-  <script src="build.js"></script>
+  <div class="container">
+    <img src="/assets/spot-light.png" alt="examples render" />
+    <h2>Examples with hwoa-rang-gl</h2>
+    <p>List of tutorials for the <a href="https://gnikoloff.github.io/hwoa-rang-gl/"><code>hwoa-rang-gl</code></a> WebGL library. To be expanded with more.</p>
+    <ol>
+      <li>
+        <a href="tutorial0">Rendering a 3D textured cube with hwoa-rang-gl</a>
+      </li>
+    </ol>
+  </div>
 </body>
 </html>

@@ -32,6 +32,9 @@ const perspCamera = new HwoaRangGL.PerspectiveCamera(
 perspCamera.position = [5, 3, 3]
 perspCamera.lookAt([0, 0, 0])
 
+// Camera controller
+new HwoaRangGL.CameraController(perspCamera)
+
 // Create the geometry needed for our cube
 const { vertices, indices, uv, normal } = HwoaRangGL.GeometryUtils.createBox({
   width: 1,
@@ -103,7 +106,7 @@ img.onload = () => {
     .setAnisotropy(8)
     .generateMipmap()
 }
-img.src = 'assets/webgl-logo.png'
+img.src = '/assets/webgl-logo.png'
 
 // Start our animation loop
 requestAnimationFrame(renderFrame)

@@ -3,12 +3,17 @@ import commonjs from 'rollup-plugin-commonjs'
 import sourcemaps from 'rollup-plugin-sourcemaps'
 import copy from 'rollup-plugin-copy'
 
+const sharedPlugins = [
+  commonjs(),
+  nodeResolve(),
+  sourcemaps(),
+]
+
 export default [
   {
-    input: `src/index.js`,
+    input: 'empty.js',
     output: {
-      file: 'dist/build.js',
-      format: 'iife',
+      file: 'dist/empty.js'
     },
     plugins: [
       copy({
@@ -17,9 +22,21 @@ export default [
           { src: `assets`, dest: `dist` },
         ],
       }),
-      commonjs(),
-      nodeResolve(),
-      sourcemaps(),
+    ]
+  },
+  ...new Array(1).fill().map((_, i) => ({
+    input: `src/tutorial${i}/index.js`,
+    output: {
+      file: `dist/tutorial${i}/build.js`,
+      format: 'iife',
+    },
+    plugins: [
+      copy({
+        targets: [
+          { src: `src/tutorial${i}/index.html`, dest: `dist/tutorial${i}` },
+        ],
+      }),
+      ...sharedPlugins
     ],
-  }
+  }))
 ]
