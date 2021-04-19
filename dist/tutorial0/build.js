@@ -2268,7 +2268,7 @@
   document.body.appendChild(canvas);
 
   // Set the viewport size
-  gl.viewport(0, 0, innerWidth, innerHeight);
+  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
   // Enable depth testing
   gl.enable(gl.DEPTH_TEST);
   // Set the background color
